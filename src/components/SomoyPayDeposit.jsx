@@ -26,7 +26,6 @@ const SomoyPayDeposit = () => {
     console.log("Selected Amount:", selectedAmount);
     console.log("Active Tab:", activeTab);
 
-    // You can also include more actions here, such as API calls or form submissions
   };
 
   return (
