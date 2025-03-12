@@ -20,13 +20,56 @@ const SomoyPayDeposit = () => {
 
   };
 
-  const handleConfirmDeposit = () => {
-    // Log the information after the user confirms the deposit
-    console.log("Selected Payment Method:", selectedPaymentMethod);
-    console.log("Selected Amount:", selectedAmount);
-    console.log("Active Tab:", activeTab);
+  const handleConfirmDeposit = async () => {
+    if (!selectedAmount || !selectedPaymentMethod) {
+      alert("Please select a payment method and amount.");
+      return;
+    }
 
+    const transactionId = `TXN_${Date.now()}`; // Generate a unique transaction ID
+
+    try {
+      const response = await fetch(import.meta.env.VITE_SOMOYPAY_PAYMENT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-SECRET-KEY": import.meta.env.VITE_DEPOSIT_SECRET_KEY,
+        },
+        body: JSON.stringify({
+          currency: "BDT",
+          amount: selectedAmount,
+          reference: transactionId,
+          callback_url: import.meta.env.VITE_CALLBACK_URL,
+          customer_name: "N/A",
+          customer_email: "user@example.com",
+          customer_phone: "N/A",
+          customer_address: "N/A",
+          note: "Testing Deposit for integration",
+        }),
+      });
+
+      const data = await response.json();
+
+      console.log("Payment Initiation Response:", data);
+
+      if (data.status === "success" && data.data.payment_url) {
+        console.log("Redirecting to payment URL...");
+        // Log the URL to ensure it's correct
+        console.log("Payment URL:", data.data.payment_url);
+        // Redirect to payment URL
+        window.location.replace(data.data.payment_url); // or window.location.href = data.data.payment_url;
+      } else {
+        console.error("Payment initiation failed:", data);
+        alert("Failed to initiate payment. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error initiating payment:", error);
+      alert("An error occurred. Please try again later.");
+    }
   };
+
+
+
 
   return (
     <div className="somoyPay-container">
