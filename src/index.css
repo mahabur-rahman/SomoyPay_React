@@ -1,68 +1,164 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Base Styles */
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1b1e32, #2a2e44);
+  color: white;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.somoyPay-container {
+  width: 100%;
+  max-width: 800px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+.somoyPay-main {
+  padding: 20px;
+}
+
+.somoyPay-card {
+  background-color: #2c3e50;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.somoyPay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.somoyPay-title {
+  font-size: 24px;
+  color: #f1c40f;
+}
+
+.somoyPay-button {
+  background-color: #34495e;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 10px;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: background-color 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.somoyPay-button.active {
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+}
+
+.somoyPay-divider {
+  border-top: 2px solid #34495e;
+  margin: 20px 0;
+}
+
+.somoyPay-promotions,
+.somoyPay-payment-method,
+.somoyPay-amount,
+.somoyPay-terms {
+  margin-bottom: 20px;
+}
+
+.somoyPay-section-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #f39c12;
+}
+
+.somoyPay-payment-button {
+  background-color: #34495e;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.somoyPay-payment-button.active {
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+}
+
+.somoyPay-amount-buttons {
+  display: flex;
+}
+
+.somoyPay-amount-button {
+  background-color: #34495e;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  width: 100%;
+}
+
+.somoyPay-amount-button.active {
+  background: linear-gradient(45deg, #f39c12, #f1c40f);
+}
+
+.somoyPay-terms p {
+  font-size: 14px;
+  color: #bdc3c7;
+}
+
+.somoyPay-confirm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.somoyPay-input-container {
+  position: relative;
+  flex: 1;
+}
+
+.somoyPay-currency {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #7f8c8d;
+}
+
+.somoyPay-input {
+  width: 80%;
+  padding: 10px 40px 10px 30px;
+  background-color: #34495e;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  outline: none;
+}
+
+.somoyPay-confirm-button {
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.somoyPay-confirm-button:hover {
+  background-color: #f1c40f;
+}
+
+.somoyPay-withdrawal {
+  font-size: 24px;
+  text-align: center;
+  color: #f39c12;
 }

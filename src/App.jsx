@@ -1,11 +1,11 @@
+import SomoyPayDeposit from "./components/SomoyPayDeposit";
 
 function App() {
-
   return (
     <>
-     dsfdsfs
+      <SomoyPayDeposit />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
